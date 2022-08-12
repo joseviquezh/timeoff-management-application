@@ -82,7 +82,7 @@ Create company account and use cloud based version.
 
 Install TimeOff.Management application within your infrastructure:
 
-(make sure you have Node.js (>=4.0.0) and SQLite installed)
+(make sure you have Node.js (>=13.0.0) and SQLite installed)
 
 ```bash
 git clone https://github.com/timeoff-management/application.git timeoff-management
@@ -148,4 +148,3 @@ Follow instructions on [this page](docs/SessionStoreInRedis.md).
 ## Feedback
 
 Please report any issues or feedback to <a href="https://twitter.com/FreeTimeOffApp">twitter</a> or Email: pavlo at timeoff.management
-
