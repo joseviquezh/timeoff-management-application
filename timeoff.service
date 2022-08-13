@@ -1,0 +1,13 @@
+[Unit]
+Description=Web application for managing employee absences.
+Documentation=https://github.com/timeoff-management/timeoff-management-application
+
+[Service]
+Type=simple
+User=timeoff
+ExecStart= /usr/local/bin/npm run-script db-update && /usr/local/bin/npm start
+WorkingDirectory=/Users/joseviquez/Documents/prod
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

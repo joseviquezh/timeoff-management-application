@@ -1,0 +1,20 @@
+---
+- hosts: local
+  vars:
+    - repo_path: /Users/joseviquez/Documents/prod/
+  tasks:
+    - debug:
+        msg: Deploying commit "{{ lookup('env','GIT_COMMIT') }}"
+    - name: Checkout Git repository
+      git:
+        repo: 'https://github.com/joseviquezh/timeoff-management-application.git'
+        dest: "{{ repo_path }}"
+        version: "{{ lookup('env','GIT_COMMIT') }}"
+    - name: Install packages based on package.json
+        npm:
+            path: "{{ repo_path }}"
+            state: present
+    - name: Restart service timeoff
+      service:
+        name: timeoff
+        state: restarted
