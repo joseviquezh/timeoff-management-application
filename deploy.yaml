@@ -5,7 +5,7 @@
   tasks:
     - debug:
         msg: Deploying commit "{{ lookup('env','GIT_COMMIT') }}"
-    - name: Checkout Git repository
+    - name: Checkout merged SHA
       git:
         repo: 'https://github.com/joseviquezh/timeoff-management-application.git'
         dest: "{{ repo_path }}"
