@@ -13,14 +13,14 @@ Web application for managing employee absences.
 - Virtual machine for the NoeJS app to run
 - Ansible playbook with the necessary steps and instructions needed to deploy the NodeJS app
 - The production VM must have installed:
- - Git
- - NodeJs
- - Npm
- - Sqlite3
- - Python
+    - Git
+    - NodeJs
+    - Npm
+    - Sqlite3
+    - Python
 - The Jenkins VM must have installed:
- - Jenkins
- - Ansible
+    - Jenkins
+    - Ansible
 - Some authentication method for Ansible to be able to ssh into the production server (public/private ssh key pair)
 - Jenkins must be able to listen to push events on our repository
 
