@@ -1,7 +1,7 @@
 ---
-- hosts: local
+- hosts: dev
   vars:
-    - repo_path: /Users/joseviquez/Documents/prod/
+    - repo_path: /home/ubuntu/timeoff-management-application/
   tasks:
     - debug:
         msg: Deploying commit "{{ lookup('env','GIT_COMMIT') }}"

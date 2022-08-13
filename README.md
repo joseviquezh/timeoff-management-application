@@ -5,6 +5,53 @@ Web application for managing employee absences.
 
 <a href="https://travis-ci.org/timeoff-management/timeoff-management-application"><img align="right" src="https://travis-ci.org/timeoff-management/timeoff-management-application.svg?branch=master" alt="Build status" /></a>
 
+## Automated deploy system (technical challenge)
+### Prerquisites
+
+- GitHub repository with a fortk of the time-off application
+- Virtual (physical) machine for the Jenkins server
+- Virtual machine for the NoeJS app to run
+- Ansible playbook with the necessary steps and instructions needed to deploy the NodeJS app
+- The production VM must have installed:
+ - Git
+ - NodeJs
+ - Npm
+ - Sqlite3
+ - Python
+- The Jenkins VM must have installed:
+ - Jenkins
+ - Ansible
+- Some authentication method for Ansible to be able to ssh into the production server (public/private ssh key pair)
+- Jenkins must be able to listen to push events on our repository
+
+### Assumptions
+
+- Changes merged to the repository are already tested and code-reviewed for possible bugs and is known to work
+- The Jenkins job works all the time, there are no system limitations or errors that could cause it not to trigger
+- The deployment using Ansible works all the time, there are no errors during any step of the process
+
+### Steps to follow
+- Fork repo
+- Clone the repo locally
+- In the same machine install Jenkins, ngrok and Ansible
+- Setup Jenkins, installing Ansible and Generic Webhook Trigger plugins
+- Setup Jenkins to be accessible from the internet using ngrok (ngrok forwarding must be running for events to be listened)
+- Configure a web hook in the repository so Jenkins can listen to events
+- Copy the deploy.yaml and hosts files from the repo to `/etc/ansible/`
+- Create a Jenkins job which runs the Ansible playbook
+- Create an Ubuntu VM in AWS
+- Install Ansible, git, sqlite, nodejs and npm in the ubuntu VM
+- Clone the repo in the Ubuntu VM
+
+### Limitations:
+- The app didn’t work so there is no successful deployment but it is an issue with the app's dependencies
+- Due to the issue above, Artifactory (or equivalent) was not configured
+
+### Automated Deploy Diagram
+![Automated Deploy Diagram](automated_deploy_diagram.png "Automated Deploy Diagram")
+
+---
+
 ## Features
 
 **Multiple views of staff absences**
