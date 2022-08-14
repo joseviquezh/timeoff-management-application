@@ -14,8 +14,9 @@ Web application for managing employee absences.
 - Ansible playbook with the necessary steps and instructions needed to deploy the NodeJS app
 - The production VM must have installed:
     - Git
-    - NodeJs
+    - NodeJs 14
     - Npm
+    - pm2
     - Sqlite3
     - Python
 - The Jenkins VM must have installed:

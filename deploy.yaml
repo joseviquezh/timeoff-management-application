@@ -14,7 +14,5 @@
         npm:
             path: "{{ repo_path }}"
             state: present
-    - name: Restart service timeoff
-      service:
-        name: timeoff
-        state: restarted
+     - name: Restart app running with pm2
+        command: "pm2 restart {{ repo_path }}/app.js"
