@@ -3,16 +3,15 @@
   vars:
     - repo_path: /home/ubuntu/timeoff-management-application/
   tasks:
-    - debug:
-        msg: Deploying commit "{{ lookup('env','GIT_COMMIT') }}"
     - name: Checkout merged SHA
-      git:
-        repo: 'https://github.com/joseviquezh/timeoff-management-application.git'
+      ansible.builtin.git:
+        repo: https://github.com/joseviquezh/timeoff-management-application.git
         dest: "{{ repo_path }}"
         version: "{{ lookup('env','GIT_COMMIT') }}"
     - name: Install packages based on package.json
-        npm:
-            path: "{{ repo_path }}"
-            state: present
-     - name: Restart app running with pm2
-        command: "pm2 restart {{ repo_path }}/app.js"
+      community.general.npm:
+        path: "{{ repo_path }}"
+        state: present
+    - name: Restart app running with pm2
+      ansible.builtin.command: pm2 restart {{ repo_path }}/app.js
+      changed_when: false
