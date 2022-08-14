@@ -37,16 +37,16 @@ Web application for managing employee absences.
 - In the same machine install Jenkins, ngrok and Ansible
 - Setup Jenkins, installing Ansible and Generic Webhook Trigger plugins
 - Setup Jenkins to be accessible from the internet using ngrok (ngrok forwarding must be running for events to be listened)
-- Configure a web hook in the repository so Jenkins can listen to events
+- Configure a webhook in the repository so Jenkins can listen to events
 - Copy the deploy.yaml and hosts files from the repo to `/etc/ansible/`
 - Create a Jenkins job which runs the Ansible playbook
 - Create an Ubuntu VM in AWS
-- Install Ansible, git, sqlite, nodejs and npm in the ubuntu VM
+- Install Ansible, git, sqlite, nodejs, npm and pm2 in the ubuntu VM
 - Clone the repo in the Ubuntu VM
+- Start the app using pm2
 
 ### Limitations:
-- The app didn’t work so there is no successful deployment but it is an issue with the app's dependencies
-- Due to the issue above, Artifactory (or equivalent) was not configured
+- Artifactory (or equivalent) was not configured
 
 ### Automated Deploy Diagram
 ![Automated Deploy Diagram](automated_deploy_diagram.png "Automated Deploy Diagram")
