@@ -13,5 +13,5 @@
         path: "{{ repo_path }}"
         state: present
     - name: Restart app running with pm2
-      ansible.builtin.command: pm2 restart {{ repo_path }}/app.js
+      ansible.builtin.command: pm2 restart timeoff
       changed_when: false
